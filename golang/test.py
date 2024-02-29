@@ -1,6 +1,6 @@
-from kubernetes import client, config
+from kubernetes import client, config # \Python official Library: https://github.com/kubernetes-client/python/
 
-# Configure Kubernetes connection
+# Configure Kubernetes connection (Use Defaut context)
 config.load_kube_config()
 
 # Create instances of AppsV1Api and CoreV1Api

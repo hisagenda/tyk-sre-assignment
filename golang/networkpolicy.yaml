@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: deny-all-traffic
+  name: deny-all-traffic   # Name of the NetworkPolicy
 spec:
-  podSelector:
-    matchLabels:
-      app.kubernetes.io/instance: tyk-assignment-go
-      app.kubernetes.io/name: tyk-assignment-go
-  policyTypes:
-  - Ingress
-  - Egress
-  ingress: []
-  egress: []
+  podSelector:   # Selects the pods to which the policy applies
+    matchLabels:   # Matches pods with specific labels
+      app.kubernetes.io/instance: tyk-assignment-go   # Match pods with this instance label
+      app.kubernetes.io/name: tyk-assignment-go   # Match pods with this name label
+  policyTypes:   # Defines the types of policies (Ingress, Egress)
+  - Ingress   # Deny Ingress traffic
+  - Egress    # Deny Egress traffic
+  ingress: []   # No ingress rules defined (denies all ingress traffic)
+  egress: []    # No egress rules defined (denies all egress traffic)
